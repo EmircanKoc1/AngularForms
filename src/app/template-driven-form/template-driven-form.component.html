@@ -1,1 +1,20 @@
-<p>template-driven-form works!</p>
+<form #frm="ngForm" (ngSubmit)="onSubmit(frm.value)">
+
+    <input type="text" placeholder="Name" ngModel name="Name">
+    <br>
+    <input type="text" placeholder="Surname" ngModel name="Surname">
+    <br>
+    <input type="text" placeholder="Email" ngModel name="Email">
+    <br>
+    <input type="text" placeholder="Tel">
+    <br>
+    <div ngModelGroup="address">
+        <input type="text" name="country" placeholder="country" ngModel> <br>
+        <input type="text" name="city" placeholder="city" ngModel> <br>
+        <input type="text" name="address" placeholder="address" ngModel> <br>
+    </div>
+    <button>Send</button>
+</form>
+
+<button (click)="formReset()">form reset</button>
+<button (click)="formSetValue()">form set value email</button>
