@@ -1,1 +1,29 @@
-<p>reactive-form works!</p>
+<form [formGroup]="frm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Name" formControlName="name"> <br>
+    <input type="text" placeholder="Surname" formControlName="surname"> <br>
+    <input type="text" placeholder="Email" formControlName="email"> <br>
+    <input type="text" placeholder="Tel" formControlName="tel"> <br>
+    <div formGroupName="address">
+        <input type="text" placeholder="country" formControlName="country"> <br>
+        <input type="text" placeholder="city" formControlName="city"> <br>
+        <input type="text" placeholder="address" formControlName="address"> <br>
+    </div>
+    <button>Send</button>
+</form>
+
+{{frm.valid}}
+
+<br>
+name erros : {{name?.errors | json}}
+<br>
+{{nameError?.name}} <br>
+{{nameError?.required}}
+
+<br>
+-------------
+<br>
+{{asyncEmailError}}
+<br>
+-------------
+<br>
+{{frm.get("email")?.errors | json}}
